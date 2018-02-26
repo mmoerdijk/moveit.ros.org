@@ -71,6 +71,8 @@ Next manually add a package.xml as used in the ROS release wrapper for OMPL (mod
 
     wget https://raw.githubusercontent.com/ros-gbp/ompl-release/debian/kinetic/xenial/ompl/package.xml
 
+In the `src/moveit/moveit_planners/ompl/CMakeList.txt` from moveit change line 23 from `find_package(OMPL REQUIRED)` to `find_package(ompl REQUIRED)`.[See also](https://github.com/ros-planning/moveit/issues/169)
+
 Now you should be able to build using regular ``catkin build``
 
 ## Flexible Collision Library (FCL)
@@ -93,5 +95,7 @@ Next manually add a package.xml as used in the ROS release wrapper:
     wget https://raw.githubusercontent.com/ros-gbp/fcl-release/debian/jade/fcl/package.xml
 
 In order for ``moveit_core`` to wait until ``fcl`` is finished build, edit ``fcl/package.xml`` and rename the project to ``libfcl-dev``.
+
+
 
 Now you should be able to build using regular ``catkin build``
